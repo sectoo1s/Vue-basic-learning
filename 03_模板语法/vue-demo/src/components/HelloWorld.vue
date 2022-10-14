@@ -5,6 +5,8 @@
     <div v-html="rawHtml"></div>
     <div v-bind:id="dynamicId"></div>
     <div :id="dynamicId"></div>
+    <p>{{ num + 10 }}</p>
+    <p>{{ flag ? "孙猴子" : "傻猴子"}}</p>
   </div>
   <!-- 
     {{}}：
@@ -16,10 +18,8 @@
 
     v-bind:
       能够将属性动态化方便修改，可以简写成：
-    
-    
-    
 
+    {{}} 可以渲染表达式
    -->
 </template>
 
@@ -30,8 +30,9 @@ export default {
     return {
       message: "学习vue:模板语法",
       rawHtml: "<a href='http://www.itbaizhan.com'>百战</a>",
-      dynamicId: 10001
-
+      dynamicId: 10001,
+      num: 10,
+      flag: false
     }
   }
 }
