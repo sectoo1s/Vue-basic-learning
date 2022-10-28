@@ -1,0 +1,50 @@
+watch  ： 监听
+
+	
+	1、监听路由的变化
+
+		watch:{
+		    $route(  to,from ){
+		      //to   ===> 最新的路由
+		      //from ===> 上一次的路由
+		      console.log( to.path , from.path );
+		    }
+		}
+
+	2、监听数据的变化
+
+		watch:{
+
+			a(to,from){
+				//to   ==> 最新的
+				//from ==> 上一次的
+				console.log(to,from)
+			}
+
+		}
+
+	3、深度监听	
+
+		*** 监听b但是是b的c改变了，所以要监听b内所有的属性变化，就要用到深度监听
+
+		data () {
+			return {
+  				b:{c:1}
+			}
+		}
+		watch:{
+
+			a(to,from){
+				//to   ==> 最新的
+				//from ==> 上一次的
+				console.log(to,from)
+			},
+			b:{
+				handler(to){
+					console.log('B:',to.c)
+				},
+				//深度监听
+				deep:true
+			}
+
+		}

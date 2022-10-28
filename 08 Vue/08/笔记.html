@@ -1,0 +1,26 @@
+一、计算属性是用来干什么的？
+
+
+	模版语法内如果添加特别复杂的逻辑，就让模版表达式比较重而且难以维护
+
+	对于任何复杂逻辑，你都应当使用计算“属性”。
+
+二、计算属性写法
+
+	computed:{
+    	changeStr(){
+	      return this.str.split('').reverse().join('');
+	    }
+	}
+
+
+******计算属性（computed）是基于它们的响应式依赖进行缓存的。
+
+
+三、computed和methods区别 【高频面试题】
+
+	computed是有缓存的（如果计算的属性没有发生变化，则执行缓存数据）
+	methods是没有缓存的(也就是template只要render了[或者重复render]就会执行methods内所有的方法)
+
+
+	

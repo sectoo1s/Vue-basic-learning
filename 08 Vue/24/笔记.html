@@ -1,0 +1,81 @@
+一、vue项目axios进行接口的请求
+
+	1.1 下载
+
+		npm install axios -S
+
+	1.2 引入
+
+		main.js
+
+			import axios from 'axios'
+			Vue.prototype.axios = axios;
+	1.3 使用
+
+		1.3.1 GET
+
+			this.axios({
+				url:,
+				params:{}
+			}).then(res=>{
+				res
+			})
+
+		1.3.2 POST
+
+			this.axios({
+				url:,
+				data:{}
+			}).then(res=>{
+				res
+			})
+
+二、vue项目中在开发阶段设置代理
+
+	2.1 项目根目录需要新建vue.config.js
+
+	2.2 配置代理
+
+		module.exports = {
+		  devServer: {
+		    proxy: {
+		      '/api': {
+		        target: 'http://localhost:3000',
+		        changeOrigin: true
+		      }
+		    }
+		  }
+		}
+
+	2.3 配置完成一定要重启前端
+
+
+
+
+***** 安装后端
+
+1、全局安装 cnpm install express-generator -g
+
+2、创建项目
+
+	express --view=ejs <项目名称>
+
+	express --view=ejs server
+
+3、安装依赖
+
+    cd server
+   
+    npm install
+
+    npm start
+
+4、后端接口
+
+	server / routes / index.js
+
+
+
+
+
+

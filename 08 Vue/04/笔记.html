@@ -1,0 +1,43 @@
+一、列表渲染(v-for)
+
+	写法：
+
+		<ul>
+	        <li v-for='(item,index) in arr' :key='index'> 
+	            {{item}}
+	            ---
+
+	            {{index}}
+	        </li>
+	    </ul>
+
+
+二、条件渲染(v-if)
+	
+	<h1 v-if='types=="张三"'>
+      11111
+    </h1>
+
+    <h1 v-else-if='types=="李四"'>
+     22222
+    </h1>
+
+    <h1 v-else>
+      33333
+    </h1>
+
+
+*******
+面试题：v-if和v-for的优先级谁高？
+
+	v-for比v-if高
+
+	正常的使用上来说
+
+		v-if
+			v-for
+
+
+
+
+

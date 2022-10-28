@@ -1,0 +1,80 @@
+一、Vuex：状态管理（集中式存储管理应用的所有组件的状态）
+
+	store : 商店
+
+二、Vuex有哪些属性
+
+	state: {},     ==> 就是来放入数据的[类似于组件中的data]
+	getters:{},    ==> 就是一个计算属性[类似于组件中的computed]   
+	mutations: {}, ==> 就是一个存放方法的[类似于组件中的methods]
+	actions: {},   ==> Action 类似于 mutation 
+				[Action 提交的是 mutation，而不是直接变更状态。]
+	modules: {},	
+
+
+三、state数据如何拿到
+
+	3.1 {{ $store.state.a }}
+   	
+   	3.2 {{ a  }}   {{ b  }}  {{ arr }}
+    
+
+   		<script type="text/javascript">
+		import {mapState} from 'vuex'
+		export default{
+			computed:{
+				...mapState(['a','b','arr'])
+			}
+		}
+		</script>
+
+四、getters 使用
+
+	<script type="text/javascript">
+	import {mapGetters} from 'vuex'
+	export default{
+		computed:{
+			...mapGetters(['total'])
+		}
+	}
+	</script>
+
+五、mutations 使用
+
+	<script type="text/javascript">
+	import {mapMutations} from 'vuex'
+	export default{
+		methods:{
+			...mapMutations(['changeBtn'])
+		}
+	}
+	</script>
+
+六、actions 使用
+
+	actions是来提交mutations通过commit
+
+	actions: {
+		checkedFn({commit,getters}){
+
+			getters.checkAll ? commit('unCheckAll') : commit('checkAll')
+
+		}
+	}
+
+七、actions和mutations区别 [高频面试题]
+
+	7.1 Action 提交的是 mutation，而不是直接变更状态。
+
+	7.2 mutations 是同步的
+		actions 可以包含任意异步操作
+
+		**** actions更加容易调试
+
+****总结
+
+	mapState、mapGetters放在组件中的computed中
+	
+	mapMutations、mapActions放在组件中的methods中
+
+

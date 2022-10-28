@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<input type="" name="" id='btnInput'>
+
+<h1 id='h1'></h1>
+<h2 id='h2'></h2>
+
+<script type="text/javascript">
+let btnInput = document.getElementById("btnInput");
+let h1 = document.getElementById('h1');
+let h2 = document.getElementById('h2');
+
+let obj = {};
+
+//只要赋值，给我console.log( '赋值了' )
+//obj.xx = '123';
+
+Object.defineProperty(obj,'names',{
+	//设置劫持
+	set( val ){
+
+		h1.innerHTML = val;
+		h2.innerHTML = val;
+
+		console.log( '设置' );
+
+		names=val;
+	},
+	//获取劫持
+	get(){
+		return names;
+	}	
+})
+
+
+btnInput.oninput = function(){
+
+	obj.names = this.value;
+}
+
+
+
+</script>
+
+</body>
+</html>

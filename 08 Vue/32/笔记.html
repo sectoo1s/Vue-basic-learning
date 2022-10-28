@@ -1,0 +1,40 @@
+一、导航守卫 （ 拦截 ）
+
+	登录：https://m.mi.com/address/list?type=user
+
+	没有登录：
+
+		访问：https://m.mi.com/address/list?type=user
+
+		跳转到了：https://m.mi.com/login
+
+
+二、导航守卫
+
+	全局
+
+		router.beforeEach((to,from,next)=>{})
+		router.afterEach((to,from,next)=>{})
+
+	组件内守卫
+
+		beforeRouteEnter((to,from,next)=>{})
+		beforeRouteUpdate((to,from,next)=>{})
+		beforeRouteLeave((to,from,next)=>{})
+
+	路由独享
+
+		beforeEnter((to,from,next)=>{})
+
+
+	to 		:   这是你跳转到哪个路由对象
+	from    :   这是你要离开的路由对象
+	next    :   是一个方法，可以接收参数。这个方法是必须调用，如果不使用就跳转不过去，你可以把next看做一个保安，必须要跟next打个招呼你才可以通过。
+
+		next()		==> 就是告诉保安为要过去，去哪里就是to
+		next(false) ==> 可以不通过，中断跳转
+		next('/')   ==> 就意思是保安不让过，你可以去另外一个地方进行通过
+
+
+
+

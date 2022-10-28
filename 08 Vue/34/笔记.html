@@ -1,0 +1,29 @@
+一、Vuex：状态管理（集中式存储管理应用的所有组件的状态）
+
+	store : 商店
+
+二、Vuex有哪些属性
+
+	state: {},    ==> 就是来放入数据的[类似于组件中的data]
+	getters:{},
+	mutations: {},
+	actions: {},
+	modules: {},	
+
+
+三、state数据如何拿到
+
+	3.1 {{ $store.state.a }}
+   	
+   	3.2 {{ a  }}   {{ b  }}  {{ arr }}
+    
+
+   		<script type="text/javascript">
+		import {mapState} from 'vuex'
+		export default{
+			computed:{
+				...mapState(['a','b','arr'])
+			}
+		}
+		</script>
+
